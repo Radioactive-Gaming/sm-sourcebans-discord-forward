@@ -1,7 +1,7 @@
 #pragma semicolon 1
 
-#define PLUGIN_AUTHOR "RumbleFrog, SourceBans++ Dev Team"
-#define PLUGIN_VERSION "1.1.0"
+#define PLUGIN_AUTHOR "RumbleFrog, SourceBans++ Dev Team, X8ETr1x"
+#define PLUGIN_VERSION "1.1.1"
 
 #include <sourcemod>
 #include <sourcebanspp>
@@ -275,7 +275,7 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 		LogError("HTTP request failed for %s against %s", sAuthor, sTarget);
 }
 
-public int OnHTTPRequestComplete(Handle hRequest, bool bFailure, bool bRequestSuccessful, EHTTPStatusCode eStatusCode, int iClient, int iTarget)
+public void OnHTTPRequestComplete(Handle hRequest, bool bFailure, bool bRequestSuccessful, EHTTPStatusCode eStatusCode, int iClient, int iTarget)
 {
 	if (!bRequestSuccessful || eStatusCode != k_EHTTPStatusCode204NoContent)
 	{
